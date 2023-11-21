@@ -33,5 +33,3 @@ fetch('employee.json')
       })
       .catch(error => console.error('Error loading schedule data:', error));
   })
-  .catch(error => console.error('Error loading employee data:', error));
-
