@@ -6,10 +6,9 @@
   <title>Schedule Report</title>
 </head>
 <body>
-  <script>
-    // Assume you have loaded the employee and schedule data asynchronously
+  <div id="scheduleReport"></div>
 
-    // Mocked employee data
+  <script>
     const employeeData = {
       "employees": [
         { "id": 1, "name": "John Doe", "position": "Software Developer", "department": "IT" },
@@ -19,7 +18,6 @@
       ]
     };
 
-    // Mocked schedule data
     const scheduleData = `
       <schedule>
         <shift>
@@ -44,12 +42,11 @@
       </schedule>
     `;
 
-    // Parse the XML schedule data
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(scheduleData, "application/xml");
 
-    // Process the data
     const shifts = xmlDoc.querySelectorAll("shift");
+    const scheduleReportDiv = document.getElementById("scheduleReport");
 
     shifts.forEach((shift) => {
       const employeeId = shift.querySelector("employeeId").textContent;
@@ -57,15 +54,16 @@
       const startTime = shift.querySelector("startTime").textContent;
       const endTime = shift.querySelector("endTime").textContent;
 
-      // Find the corresponding employee
       const employee = employeeData.employees.find((emp) => emp.id.toString() === employeeId);
 
       if (employee) {
-        // Display the schedule information
-        console.log(`${employee.name} (${employee.position}, ${employee.department})`);
-        console.log(`Day: ${day}`);
-        console.log(`Shift: ${startTime} - ${endTime}`);
-        console.log("------------------------");
+        const scheduleInfo = `
+          <p>${employee.name} (${employee.position}, ${employee.department})</p>
+          <p>Day: ${day}</p>
+          <p>Shift: ${startTime} - ${endTime}</p>
+          <hr>
+        `;
+        scheduleReportDiv.innerHTML += scheduleInfo;
       }
     });
   </script>
