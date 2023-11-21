@@ -1,10 +1,14 @@
 fetch('employee.json')
   .then(response => response.json())
   .then(employeeData => {
+    console.log('Employee data loaded successfully:', employeeData);
+
     // Load schedule data from XML file
     fetch('schedule.xml')
       .then(response => response.text())
       .then(scheduleData => {
+        console.log('Schedule data loaded successfully:', scheduleData);
+
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(scheduleData, "application/xml");
 
@@ -32,3 +36,4 @@ fetch('employee.json')
       })
       .catch(error => console.error('Error loading schedule data:', error));
   })
+  .catch(error => console.error('Error loading employee data:', error));
