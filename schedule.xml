@@ -1,0 +1,20 @@
+<schedule>
+  <shift>
+    <employeeId>1</employeeId>
+    <day>Monday</day>
+    <startTime>09:00 AM</startTime>
+    <endTime>05:00 PM</endTime>
+  </shift>
+  <shift>
+    <employeeId>2</employeeId>
+    <day>Monday</day>
+    <startTime>08:30 AM</startTime>
+    <endTime>04:30 PM</endTime>
+  </shift>
+  <shift>
+    <employeeId>1</employeeId>
+    <day>Tuesday</day>
+    <startTime>10:00 AM</startTime>
+    <endTime>06:00 PM</endTime>
+  </shift>
+  </schedule>
