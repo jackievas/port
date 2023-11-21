@@ -1,1 +1,73 @@
-https://github.com/jackievas/portfolio.git
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Report</title>
+</head>
+<body>
+  <script>
+    // Assume you have loaded the employee and schedule data asynchronously
+
+    // Mocked employee data
+    const employeeData = {
+      "employees": [
+        { "id": 1, "name": "John Doe", "position": "Software Developer", "department": "IT" },
+        { "id": 2, "name": "Jane Smith", "position": "Marketing Specialist", "department": "Marketing" },
+        { "id": 3, "name": "Bob Johnson", "position": "HR Manager", "department": "Human Resources" }
+        // ... add more employees as needed
+      ]
+    };
+
+    // Mocked schedule data
+    const scheduleData = `
+      <schedule>
+        <shift>
+          <employeeId>1</employeeId>
+          <day>Monday</day>
+          <startTime>09:00 AM</startTime>
+          <endTime>05:00 PM</endTime>
+        </shift>
+        <shift>
+          <employeeId>2</employeeId>
+          <day>Monday</day>
+          <startTime>08:30 AM</startTime>
+          <endTime>04:30 PM</endTime>
+        </shift>
+        <shift>
+          <employeeId>1</employeeId>
+          <day>Tuesday</day>
+          <startTime>10:00 AM</startTime>
+          <endTime>06:00 PM</endTime>
+        </shift>
+        <!-- ... add more shifts as needed -->
+      </schedule>
+    `;
+
+    // Parse the XML schedule data
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(scheduleData, "application/xml");
+
+    // Process the data
+    const shifts = xmlDoc.querySelectorAll("shift");
+
+    shifts.forEach((shift) => {
+      const employeeId = shift.querySelector("employeeId").textContent;
+      const day = shift.querySelector("day").textContent;
+      const startTime = shift.querySelector("startTime").textContent;
+      const endTime = shift.querySelector("endTime").textContent;
+
+      // Find the corresponding employee
+      const employee = employeeData.employees.find((emp) => emp.id.toString() === employeeId);
+
+      if (employee) {
+        // Display the schedule information
+        console.log(`${employee.name} (${employee.position}, ${employee.department})`);
+        console.log(`Day: ${day}`);
+        console.log(`Shift: ${startTime} - ${endTime}`);
+        console.log("------------------------");
+      }
+    });
+  </script>
+</body>
+</html>
