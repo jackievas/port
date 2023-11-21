@@ -1,5 +1,28 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 #scheduleReport {
   margin: 20px;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.scheduleItem {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.scheduleItem p {
+  margin: 5px 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
 }
