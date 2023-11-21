@@ -1,4 +1,3 @@
-// Load employee data from JSON file
 fetch('employee.json')
   .then(response => response.json())
   .then(employeeData => {
