@@ -2,6 +2,7 @@
   "employees": [
     { "id": 1, "name": "John Doe", "position": "Quality Control Technician", "department": "Manufacturing" },
     { "id": 2, "name": "Jane Smith", "position": "Warehouse Operator", "department": "Warehouse" },
-    { "id": 3, "name": "Bob Johnson", "position": "Food Packaging Specialist", "department": "Manufacturing" },
+    { "id": 3, "name": "Bob Johnson", "position": "Food Packaging Specialist", "department": "Manufacturing" }
   ]
 }
+
