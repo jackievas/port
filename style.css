@@ -26,6 +26,12 @@ body {
   text-align: center;
 }
 
+.scheduleTable .scheduleCell {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}
+
 .scheduleItem {
   margin: 0;
 }
