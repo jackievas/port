@@ -1,3 +1,4 @@
+/* Reset some default styles for better consistency */
 body, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@ body {
   margin-top: 20px;
 }
 
-/* Add borders to cells with the 'dayOfWeek' class */
+/* Add borders to cells in the schedule table */
 .scheduleTable {
   border-collapse: collapse;
   width: 100%;
@@ -25,12 +26,6 @@ body {
   text-align: center;
 }
 
-.scheduleTable .dayOfWeek {
-  border: 1px solid #000;
-}
-
 .scheduleItem {
   margin: 0;
 }
-
-
