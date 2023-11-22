@@ -1,55 +1,36 @@
-body {
-  font-family: 'Arial', sans-serif;
+/* Reset some default styles for better consistency */
+body, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
 }
 
-#scheduleReport {
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+body {
+  font-family: Arial, sans-serif;
 }
 
-.scheduleItem {
-  margin-bottom: 20px;
-  padding-bottom: 0;
-  border-bottom: 0;
-}
-
-.scheduleItem p {
-  margin: 5px 0;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-}
-
+/* Style for the schedule table */
 .scheduleTable {
-  width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.scheduleTable th, .scheduleTable td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-.scheduleTable th {
-  background-color: #f2f2f2;
-  font-weight: bold;
+  width: 100%;
 }
 
 .scheduleTable th,
 .scheduleTable td {
-  border: 1px solid #000;  
-  padding: 8px;           
+  padding: 8px;
+  text-align: center;
 }
 
+/* Style for the days of the week cells */
+.dayOfWeek {
+  border: 1px solid #000;
+}
+
+/* Style for the schedule items */
 .scheduleItem {
-  margin: 0;             
+  margin: 0;
+}
+
+/* Style for the schedule report container */
+#scheduleReport {
+  margin-top: 20px;
 }
