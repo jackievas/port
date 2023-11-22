@@ -14,7 +14,7 @@ body {
 
 .scheduleItem {
   margin-bottom: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 0;
   border-bottom: 0;
 }
 
