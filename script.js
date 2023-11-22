@@ -59,9 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
               }
 
               const cell = scheduleTable.rows[rowIndex].cells[dayIndex];
+              // Update the cell content without "Shift" and remove the line under each shift
               cell.innerHTML += `
                 <div class="scheduleItem">
-                  <p>Shift: ${startTime} - ${endTime}</p>
+                  <p>${startTime} - ${endTime}</p>
                 </div>
               `;
             }
@@ -75,3 +76,4 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error loading employee data:', error));
 });
+
