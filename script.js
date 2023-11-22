@@ -48,18 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const nameCell = scheduleRow.insertCell(0); // Insert at the beginning
                 nameCell.textContent = employeeName;
                 employeeNameToRowIndex[employeeName] = scheduleRow.rowIndex;
+
+                // Create cells for all days of the week
+                daysOfWeek.forEach(() => {
+                  scheduleRow.insertCell();
+                });
               }
 
               // Find the index of the day and add the schedule information to the corresponding cell
               const dayIndex = daysOfWeek.indexOf(day);
               const rowIndex = employeeNameToRowIndex[employeeName];
 
-              // Ensure the row has enough cells for the current day
-              while (scheduleTable.rows[rowIndex].cells.length <= dayIndex) {
-                scheduleTable.rows[rowIndex].insertCell();
-              }
-
-              const cell = scheduleTable.rows[rowIndex].cells[dayIndex];
+              const cell = scheduleTable.rows[rowIndex].cells[dayIndex + 1]; // +1 to skip the name cell
               // Update the cell content without "Shift"
               cell.innerHTML += `
                 <div class="scheduleItem">
