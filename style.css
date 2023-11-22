@@ -1,4 +1,3 @@
-
 body, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
@@ -26,11 +25,12 @@ body {
   text-align: center;
 }
 
-.dayOfWeek {
+.scheduleTable .dayOfWeek {
   border: 1px solid #000;
 }
 
 .scheduleItem {
   margin: 0;
 }
+
 
