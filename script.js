@@ -25,36 +25,36 @@ fetch('employee.json')
           tableHeaderRow.appendChild(th);
         });
 
-        const employeeIdToRowIndex = {}; // Map employeeId to rowIndex
+       const employeeIdToRowIndex = {}; // Map employeeId to rowIndex
 
-        shifts.forEach((shift) => {
-          const employeeId = shift.querySelector("employeeId").textContent;
-          const day = shift.querySelector("day").textContent;
-          const startTime = shift.querySelector("startTime").textContent;
-          const endTime = shift.querySelector("endTime").textContent;
-
-          const employee = employeeData.employees.find((emp) => emp.id.toString() === employeeId);
-
-          if (employee) {
-            // Check if the employeeId has an assigned rowIndex, if not, create a new row
-            if (!employeeIdToRowIndex[employeeId]) {
-              employeeIdToRowIndex[employeeId] = scheduleTable.rows.length;
-              const scheduleRow = scheduleTable.insertRow(employeeIdToRowIndex[employeeId]);
-              daysOfWeek.forEach(() => scheduleRow.insertCell());
-            }
-
-            // Find the index of the day and add the schedule information to the corresponding cell
-            const dayIndex = daysOfWeek.indexOf(day);
-            const rowIndex = employeeIdToRowIndex[employeeId];
-            const cell = scheduleTable.rows[rowIndex].cells[dayIndex];
-            cell.innerHTML += `
-              <div class="scheduleItem">
-                <p>${employee.name} (${employee.position}, ${employee.department})</p>
-                <p>Shift: ${startTime} - ${endTime}</p>
-              </div>
-            `;
+      shifts.forEach((shift) => {
+        const employeeId = shift.querySelector("employeeId").textContent;
+        const day = shift.querySelector("day").textContent;
+        const startTime = shift.querySelector("startTime").textContent;
+        const endTime = shift.querySelector("endTime").textContent;
+      
+        const employee = employeeData.employees.find((emp) => emp.id.toString() === employeeId);
+      
+        if (employee) {
+          // Check if the employeeId has an assigned rowIndex, if not, create a new row
+          if (!employeeIdToRowIndex[employeeId]) {
+            employeeIdToRowIndex[employeeId] = scheduleTable.rows.length;
+            const scheduleRow = scheduleTable.insertRow(-1); // Use -1 to insert at the end
+            daysOfWeek.forEach(() => scheduleRow.insertCell());
           }
-        });
+      
+          // Find the index of the day and add the schedule information to the corresponding cell
+          const dayIndex = daysOfWeek.indexOf(day);
+          const rowIndex = employeeIdToRowIndex[employeeId];
+          const cell = scheduleTable.rows[rowIndex].cells[dayIndex];
+          cell.innerHTML += `
+            <div class="scheduleItem">
+              <p>${employee.name} (${employee.position}, ${employee.department})</p>
+              <p>Shift: ${startTime} - ${endTime}</p>
+            </div>
+          `;
+        }
+      });
 
         // Append the table to the scheduleReportDiv
         scheduleReportDiv.appendChild(scheduleTable);
