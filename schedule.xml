@@ -17,4 +17,23 @@
     <startTime>10:00 AM</startTime>
     <endTime>06:00 PM</endTime>
   </shift>
-  </schedule>
+  <shift>
+    <employeeId>3</employeeId>
+    <day>Tuesday</day>
+    <startTime>08:00 AM</startTime>
+    <endTime>04:00 PM</endTime>
+  </shift>
+  <shift>
+    <employeeId>2</employeeId>
+    <day>Wednesday</day>
+    <startTime>09:30 AM</startTime>
+    <endTime>05:30 PM</endTime>
+  </shift>
+  <shift>
+    <employeeId>1</employeeId>
+    <day>Wednesday</day>
+    <startTime>08:00 AM</startTime>
+    <endTime>04:00 PM</endTime>
+  </shift>
+  <!-- ... add more shifts as needed -->
+</schedule>
