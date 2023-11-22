@@ -26,3 +26,21 @@ h1 {
   text-align: center;
   color: #333;
 }
+
+.scheduleTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.scheduleTable th, .scheduleTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.scheduleTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
