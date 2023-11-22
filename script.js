@@ -25,6 +25,8 @@ fetch('employee.json')
           tableHeaderRow.appendChild(th);
         });
 
+        const employeeIdToRowIndex = {}; // Map employeeId to rowIndex
+
         shifts.forEach((shift) => {
           const employeeId = shift.querySelector("employeeId").textContent;
           const day = shift.querySelector("day").textContent;
@@ -34,11 +36,18 @@ fetch('employee.json')
           const employee = employeeData.employees.find((emp) => emp.id.toString() === employeeId);
 
           if (employee) {
+            // Check if the employeeId has an assigned rowIndex, if not, create a new row
+            if (!employeeIdToRowIndex[employeeId]) {
+              employeeIdToRowIndex[employeeId] = scheduleTable.rows.length;
+              const scheduleRow = scheduleTable.insertRow(employeeIdToRowIndex[employeeId]);
+              daysOfWeek.forEach(() => scheduleRow.insertCell());
+            }
+
             // Find the index of the day and add the schedule information to the corresponding cell
             const dayIndex = daysOfWeek.indexOf(day);
-            const scheduleRow = scheduleTable.insertRow(employeeId);
-            const cell = scheduleRow.insertCell(dayIndex);
-            cell.innerHTML = `
+            const rowIndex = employeeIdToRowIndex[employeeId];
+            const cell = scheduleTable.rows[rowIndex].cells[dayIndex];
+            cell.innerHTML += `
               <div class="scheduleItem">
                 <p>${employee.name} (${employee.position}, ${employee.department})</p>
                 <p>Shift: ${startTime} - ${endTime}</p>
@@ -53,4 +62,5 @@ fetch('employee.json')
       .catch(error => console.error('Error loading schedule data:', error));
   })
   .catch(error => console.error('Error loading employee data:', error));
+
 
