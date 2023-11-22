@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
           daysOfWeek.forEach(day => {
             const th = document.createElement('th');
             th.textContent = day;
+            th.classList.add('dayOfWeek'); // Add class to days of the week cells
             tableHeaderRow.appendChild(th);
           });
 
@@ -76,4 +77,3 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error loading employee data:', error));
 });
-
