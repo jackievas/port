@@ -61,3 +61,4 @@ function displayEmployeeTable(employeeData) {
   // Append the employee table to the container
   employeeTableContainer.appendChild(employeeTable);
 }
+
