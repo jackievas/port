@@ -40,10 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (employee) {
               const employeeName = employee.name;
 
+              // Replace spaces with underscores in the employee name for class name
+              const className = employeeName.replace(/\s+/g, '_');
+
               // Check if the employee name has an assigned rowIndex, if not, create a new row
-              if (!scheduleTable.querySelector(`.${employeeName}`)) {
+              if (!scheduleTable.querySelector(`.${className}`)) {
                 const scheduleRow = scheduleTable.insertRow();
-                scheduleRow.classList.add(employeeName); // Add class to the row
+                scheduleRow.classList.add(className); // Add class to the row
                 const nameCell = scheduleRow.insertCell(0); // Insert at the beginning
                 nameCell.textContent = employeeName;
 
@@ -56,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
               // Find the index of the day and add the schedule information to the corresponding cell
               const dayIndex = daysOfWeek.indexOf(day);
-              const rowClass = scheduleTable.querySelector(`.${employeeName}`);
+              const rowClass = scheduleTable.querySelector(`.${className}`);
               const cell = rowClass.cells[dayIndex + 1]; // +1 to skip the name cell
               // Update the cell content without "Shift"
               cell.innerHTML += `
