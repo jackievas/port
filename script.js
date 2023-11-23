@@ -1,13 +1,13 @@
 // Function to fetch JSON data
 async function fetchJSONData() {
-  const response = await fetch('path/to/your/json/file.json');
+  const response = await fetch('employee.json');
   const data = await response.json();
   return data;
 }
 
 // Function to fetch XML data
 async function fetchXMLData() {
-  const response = await fetch('path/to/your/xml/file.xml');
+  const response = await fetch('schedule.xml');
   const text = await response.text();
   const parser = new DOMParser();
   const xmlDoc = parser.parseFromString(text, 'application/xml');
@@ -87,3 +87,4 @@ async function createScheduleTable() {
 // Call the functions to generate tables
 createEmployeeTable();
 createScheduleTable();
+
