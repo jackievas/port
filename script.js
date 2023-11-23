@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('employee.json')
     .then(response => response.json())
     .then(employeeData => {
+      // Update employee data for food production
+      employeeData.employees.forEach(emp => {
+        emp.position = 'Food Production Worker';
+        emp.department = (Math.random() > 0.5) ? 'Manufacturing' : 'Warehouse';
+      });
+
       // Fetch schedule data
       fetch('schedule.xml')
         .then(response => response.text())
@@ -46,20 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
               if (!employeeNameToRowIndex[employeeName]) {
                 const scheduleRow = scheduleTable.insertRow();
                 const nameCell = scheduleRow.insertCell(0); // Insert at the beginning
-                nameCell.textContent = employeeName;
+                nameCell.textContent = `${employeeName} (${employee.position}, ${employee.department})`;
                 employeeNameToRowIndex[employeeName] = scheduleRow.rowIndex;
-
-                // Create cells for all days of the week
-                daysOfWeek.forEach(() => {
-                  scheduleRow.insertCell();
-                });
               }
 
               // Find the index of the day and add the schedule information to the corresponding cell
               const dayIndex = daysOfWeek.indexOf(day);
               const rowIndex = employeeNameToRowIndex[employeeName];
 
-              const cell = scheduleTable.rows[rowIndex].cells[dayIndex + 1]; // +1 to skip the name cell
+              // Ensure the row has enough cells for the current day
+              while (scheduleTable.rows[rowIndex].cells.length <= dayIndex) {
+                scheduleTable.rows[rowIndex].insertCell();
+              }
+
+              const cell = scheduleTable.rows[rowIndex].cells[dayIndex];
               // Update the cell content without "Shift"
               cell.innerHTML += `
                 <div class="scheduleItem">
@@ -71,9 +77,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Append the table to the scheduleReportDiv
           const scheduleReportDiv = document.getElementById('scheduleReport');
-          scheduleReportDiv.appendChild(scheduleTable);
-        })
-        .catch(error => console.error('Error loading schedule data:', error));
-    })
-    .catch(error => console.error('Error loading employee data:', error));
-});
+          scheduleReportDiv.appendChild(schedule
