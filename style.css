@@ -44,12 +44,12 @@ body {
 .employeeTable th {
   border: 1px solid #000;
   padding: 8px;
-  text-align: left;
+  text-align: center; /* Center-align text in headers */
 }
 
 /* Style for employee table cells */
 .employeeTable td {
   border: 1px solid #000;
   padding: 8px;
-  text-align: left;
+  text-align: center; /* Center-align text in cells */
 }
