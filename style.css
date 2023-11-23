@@ -32,3 +32,24 @@ body {
 .scheduleItem {
   margin: 0;
 }
+
+/* Style for the employee table */
+.employeeTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Style for employee table headers */
+.employeeTable th {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style for employee table cells */
+.employeeTable td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
