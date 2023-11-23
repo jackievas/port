@@ -1,60 +1,48 @@
-body, h1, h2, h3, p, ul, li {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: Arial, sans-serif;
 }
 
-/* Style for the schedule report container */
-#scheduleReport {
-  margin-top: 20px;
+#employeeTable {
+  margin-bottom: 20px;
 }
 
-/* Add borders to cells with the 'dayOfWeek' class */
-.scheduleTable {
+table {
   border-collapse: collapse;
   width: 100%;
 }
 
-.scheduleTable th,
-.scheduleTable td {
-  border: 1px solid #000;
-  padding: 8px;
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+#scheduleTable {
+  margin-top: 20px;
+}
+
+#scheduleTable table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#scheduleTable table, #scheduleTable th, #scheduleTable td {
+  border: 1px solid #ddd;
+}
+
+#scheduleTable th, #scheduleTable td {
+  padding: 10px;
   text-align: center;
 }
 
-.scheduleTable .dayOfWeek {
-  border: 1px solid #000;
+#scheduleTable th {
+  background-color: #f2f2f2;
 }
 
-.scheduleItem {
-  margin: 0;
-}
-
-/* Style for the employee table */
-.employeeTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-/* Style for employee table headers and cells */
-.employeeTable th, .employeeTable td {
-  border: 1px solid #000;
-  padding: 8px;
-  text-align: left; /* Left-align text in headers and cells */
-}
-
-/* Style for schedule table headers and cells */
-.scheduleTable th, .scheduleTable td {
-  border: 1px solid #000;
-  padding: 8px;
-  text-align: left; /* Left-align text in headers and cells */
-}
-
-/* Style for the schedule item */
-.scheduleItem {
-  margin: 0;
-}
